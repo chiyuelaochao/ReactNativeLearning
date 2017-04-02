@@ -20,7 +20,7 @@ class LoginView extends Component {
 
     render() {
         return <View style={styles.container}>
-            <Image source={require('./images/batman.jpg')} style={styles.imageStyle}></Image>
+            <Image source={require('./../images/batman.jpg')} style={styles.imageStyle}></Image>
             <View style={styles.inputWrapperStyle}>
                 <TextInput placeholder='Please input QQ nunber' style={styles.inputStyle}
                            keyboardType='numeric'></TextInput>

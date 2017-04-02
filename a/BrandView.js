@@ -9,7 +9,7 @@ import {
     Image
 } from 'react-native';
 
-let JsonData = require('./data.json');
+let JsonData = require('./../data.json');
 
 let brandWidth = require('Dimensions').get('window').width / 3;
 
@@ -17,7 +17,7 @@ class BrandView extends Component {
     renderBrands = ()=> {
         return JsonData.data.map((item, i) => {
             return <View key={`wrapper${i}`} style={styles.wrapperStyle}>
-                <Image source={require('./images/icon7.png')} style={styles.imageStyle}></Image>
+                <Image source={require('./../images/icon7.png')} style={styles.imageStyle}></Image>
                 <Text>{item.title}</Text>
             </View>
         });
