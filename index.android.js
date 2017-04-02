@@ -56,11 +56,12 @@ let textWidth = screenWidth / 4;
  })*/
 
 let BrandView = require('./BrandView');
+let LoginView = require('./LoginView');
 
 export default class first extends React.Component {
     render() {
         return <View>
-            <BrandView/>
+            <LoginView/>
         </View>
     }
 }
