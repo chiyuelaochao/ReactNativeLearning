@@ -16,7 +16,7 @@ class MyScrollView extends Component {
         let data = ['red', 'green', 'blue', 'yellow'];
         return data.map((item, i)=> {
             return <View key={`item${i}`} style={{backgroundColor:item,width:ScreenWidth,height:200}}>
-                <Text style={styles.textStyle}>{i}</Text>
+                <Text style={styles.circleStyle}>{i}</Text>
             </View>
         });
     }
@@ -32,7 +32,7 @@ class MyScrollView extends Component {
 }
 
 let styles = StyleSheet.create({
-    textStyle: {
+    circleStyle: {
         margin: 10,
         fontSize:30,
         borderBottomWidth:3,

@@ -13,19 +13,19 @@ let textWidth = windowWidth / 4;
 class MyFlexView extends Component {
     render() {
         return <View style={styles.container}>
-            <Text style={[styles.textStyle,{backgroundColor:'#0f0'}]}>
+            <Text style={[styles.circleStyle,{backgroundColor:'#0f0'}]}>
                 text1
             </Text>
-            <Text style={[styles.textStyle,{backgroundColor:'#00F'}]}>
+            <Text style={[styles.circleStyle,{backgroundColor:'#00F'}]}>
                 text2
             </Text>
-            <Text style={[styles.textStyle,{height:70}]}>
+            <Text style={[styles.circleStyle,{height:70}]}>
                 text3
             </Text>
-            <Text style={[styles.textStyle,{height:70}]}>
+            <Text style={[styles.circleStyle,{height:70}]}>
                 text4
             </Text>
-            <Text style={[styles.textStyle,{height:70}]}>
+            <Text style={[styles.circleStyle,{height:70}]}>
                 text5
             </Text>
         </View>
@@ -39,7 +39,7 @@ let styles = StyleSheet.create({
         justifyContent: 'flex-end',
         alignItems: 'center'
     },
-    textStyle: {
+    circleStyle: {
         width: textWidth,
         height: 40,
         backgroundColor: '#F00',
