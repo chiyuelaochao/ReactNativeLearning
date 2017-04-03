@@ -30,7 +30,7 @@ class D1_timer extends Component {
             return <View key={`item${i}`}>
                 <TouchableOpacity activeOpacity={0.5} onPress={this.onRecordItemPress}>
                     <View style={styles.textRecordStyle}>
-                        <Text style={styles.recordTextStyle}>{i + 1}  {item}</Text>
+                        <Text style={styles.recordTextStyle}>{i + 1} {this.formatTime(item)}</Text>
                     </View>
                 </TouchableOpacity>
             </View>
@@ -69,12 +69,13 @@ class D1_timer extends Component {
     render() {
         return <View style={styles.container}>
             <View style={styles.displayContainer}>
-                <Text ref='display' style={styles.displayText}>{this.state.timerNumber}</Text>
+                <Text ref='display' style={styles.displayText}>{this.formatTime(this.state.timerNumber)}</Text>
             </View>
 
             <View style={styles.buttonContainer}>
                 <TouchableOpacity activeOpacity={0.5} onPress={this.onButtonPress.bind(this,'start')}>
-                    <View style={[styles.buttonWrapperStyle,{backgroundColor:this.state.isStart ? '#FF4500' : '#FFA500'}]}>
+                    <View
+                        style={[styles.buttonWrapperStyle,{backgroundColor:this.state.isStart ? '#FF4500' : '#FFA500'}]}>
                         <Text style={styles.buttonStyle}>{this.state.isStart ? 'Stop' : 'Start' }</Text>
                     </View>
                 </TouchableOpacity>
@@ -101,18 +102,21 @@ class D1_timer extends Component {
         </View>
     }
 
-    /* formatTime = (t)=> {
-     let msec = appendZero(t % 100);
-     let sec = appendZero(parseInt((t / 100) % 60));
-     let min = appendZero(parseInt((t / 6000) % 60));
-     let hour = appendZero(parseInt(t / 360000));
-     return `${hour}:${min}:${sec}.${msec}`;
-     }*/
+
+    formatTime = (t)=> {
+        let msec = appendZero(t % 100);
+        let sec = appendZero(parseInt((t / 100) % 60));
+        let min = appendZero(parseInt((t / 6000) % 60));
+        let hour = appendZero(parseInt(t / 360000));
+        return `${hour}:${min}:${sec}.${msec}`;
+    }
 
     componentWillUnmount = ()=> {
         clearInterval(this.interval);
     }
 }
+
+const appendZero = n => n.toLocaleString({}, {minimumIntegerDigits: 2});
 
 let styles = StyleSheet.create({
     container: {
@@ -145,7 +149,8 @@ let styles = StyleSheet.create({
         width: ScreenWidth / 5,
         backgroundColor: 'orange',
         margin: 5,
-        borderRadius: 8
+        borderRadius: 8,
+        justifyContent: 'center'
     },
 
     buttonStyle: {
@@ -155,11 +160,11 @@ let styles = StyleSheet.create({
     textRecordStyle: {
         flexDirection: 'column',
         height: 25,
-        justifyContent: 'center',
+        justifyContent: 'center'
 
     },
 
-    recordContainer:{
+    recordContainer: {
         width: ScreenWidth,
         backgroundColor: '#D3D3D3',
         borderRadius: 10
