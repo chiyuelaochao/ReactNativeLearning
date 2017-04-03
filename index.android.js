@@ -13,7 +13,6 @@ import {
 let MyFlexView = require('./a/MyFlexView');
 let BrandView = require('./a/BrandView');
 let LoginView = require('./a/LoginView');
-let MyScrollView = require('./b/MyScrollView');
 let BannerView = require('./b/BannerView');
 
 export default class first extends React.Component {

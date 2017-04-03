@@ -9,6 +9,7 @@ import {
     ScrollView,
     Image
 }from 'react-native';
+let MyScrollView = require('./MyScrollView');
 
 let ScreenWidth = require('Dimensions').get('window').width;
 var JsonData = require('./test2.json');
@@ -66,19 +67,24 @@ class BannerView extends Component {
     }
 
     render() {
-        return <View style={styles.container}>
-            <ScrollView
-                ref='ScrollView'
-                horizontal={true}
-                showsHorizontalScrollIndicator={false}
-                pagingEnabled={true}
-                onMomentumScrollBegin={this.handleScroll}
-                onScrollBeginDrag={this.handleScrollBegin}
-                onScrollEndDrag={this.handleScrollEnd}>
-                {this.renderChild()}
-            </ScrollView>
-            <View style={styles.circleWrapperStyle}>
-                {this.renderCircles()}
+        return <View>
+            <View style={styles.container}>
+                <ScrollView
+                    ref='ScrollView'
+                    horizontal={true}
+                    showsHorizontalScrollIndicator={false}
+                    pagingEnabled={true}
+                    onMomentumScrollBegin={this.handleScroll}
+                    onScrollBeginDrag={this.handleScrollBegin}
+                    onScrollEndDrag={this.handleScrollEnd}>
+                    {this.renderChild()}
+                </ScrollView>
+                <View style={styles.circleWrapperStyle}>
+                    {this.renderCircles()}
+                </View>
+            </View>
+            <View>
+                <MyScrollView/>
             </View>
         </View>
     }
